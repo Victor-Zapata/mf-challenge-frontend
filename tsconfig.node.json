@@ -1,0 +1,26 @@
+// mfnews-frontend/tsconfig.node.json
+{
+  "compilerOptions": {
+    "composite": true, // <-- Asegúrate de que esta línea esté aquí
+    "tsBuildInfoFile": "./node_modules/.tsbuildinfo",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"], // La lista de 'lib' puede variar
+    "module": "ESNext",
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "incremental": true, // <-- Asegúrate de que esta línea esté aquí
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true
+  },
+  "include": ["vite.config.ts", "src/**/*.ts"],
+  "exclude": ["node_modules"]
+}
