@@ -7,9 +7,11 @@ import Modal from './common/Modal.tsx';
 import NewsForm from './news/NewsForm.tsx';
 import ConfirmationModal from './common/ConfirmationModal.tsx';
 import NotificationToast from './common/NotificationToast.tsx';
+import Footer from './common/Footer.tsx';
 
 import { News } from '../types/news';
 import newsService from '../api/newsService';
+import ScrollToTopButton from './common/ScrollToTopButton.tsx';
 
 interface Notification {
     message: string;
@@ -123,6 +125,8 @@ function MainContent() {
                 title="Confirmar Eliminación"
                 message="¿Estás seguro de que quieres eliminar esta noticia? Esta acción es irreversible."
             />
+            <ScrollToTopButton />
+            <Footer />
         </div>
     );
 }

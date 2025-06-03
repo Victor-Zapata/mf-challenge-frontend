@@ -1,6 +1,5 @@
-// mfnews-frontend/src/components/common/Modal.tsx
 import React from 'react';
-import { Modal as BootstrapModal, Button } from 'react-bootstrap'; // Importamos Modal y Button de React-Bootstrap
+import { Modal as BootstrapModal } from 'react-bootstrap'; 
 
 interface ModalProps {
     isOpen: boolean;
