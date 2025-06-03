@@ -72,3 +72,5 @@ Eliminación de Noticias: Funcionalidad para borrar noticias permanentemente.
 Notificaciones al Usuario (Toast): Proporciona feedback visual instantáneo a través de mensajes "toast" para acciones exitosas, errores o información relevante.
 Modales Dinámicos: Utiliza componentes modales para formularios de creación/edición de noticias y para solicitudes de confirmación antes de operaciones críticas como la eliminación.
 Diseño Responsivo: La interfaz se adapta correctamente a diferentes tamaños de pantalla (desktops, tablets, móviles).
+
+

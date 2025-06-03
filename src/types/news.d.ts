@@ -3,7 +3,7 @@
 export interface News {
     id: number;
     title: string;
-    body: string;
+    content: string;
     image_url: string;
     author: string;
     date: string; // La fecha viene como string ISO de la base de datos

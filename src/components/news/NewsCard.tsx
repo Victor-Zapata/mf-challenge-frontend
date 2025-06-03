@@ -19,6 +19,13 @@ const NewsCard: React.FC<NewsCardProps> = ({ news }) => {
         });
     };
 
+    // Función para truncar el contenido
+    const truncateContent = (text: string, maxLength: number): string => {
+        if (!text) return '';
+        if (text.length <= maxLength) return text;
+        return text.substring(0, maxLength) + '...';
+    };
+
     return (
         <Card className="h-100 news-card shadow-sm border-0 transition-shadow transition-transform duration-300 ease-in-out transform hover:scale-102 hover:shadow-lg">
             <Link to={`/news/${news.id}`} className="text-decoration-none text-dark h-100 d-flex flex-column">
@@ -26,6 +33,11 @@ const NewsCard: React.FC<NewsCardProps> = ({ news }) => {
                 <Card.Body className="d-flex flex-column flex-grow-1">
                     <Card.Title className="mb-2 fs-5 fw-bold text-dark">{news.title}</Card.Title>
                     <Card.Text className="text-muted small mb-1">Por: {news.author}</Card.Text>
+                    
+                    <Card.Text className="card-text-content mb-3">
+                        {truncateContent(news.content, 100)} {/* Ajusta 100 al largo que quieras */}
+                    </Card.Text>
+
                     <Card.Text className="text-muted small mt-auto text-end">
                         Publicado el: {formatDate(news.date)}
                     </Card.Text>

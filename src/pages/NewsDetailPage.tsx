@@ -1,12 +1,12 @@
 // mfnews-frontend/src/pages/NewsDetailPage.tsx
+
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import newsService from '../api/newsService';
 import Spinner from '../components/common/Spinner.tsx';
 import { News } from '../types/news';
 import { Container, Card, Button, Alert } from 'react-bootstrap';
-// ¡CAMBIO AQUÍ! Importa desde react-bootstrap-icons
-import { PencilFill, TrashFill } from 'react-bootstrap-icons'; // Equivalentes a edit y delete
+import { PencilFill, TrashFill } from 'react-bootstrap-icons';
 
 interface NewsDetailPageProps {
     handleEditNews: (news: News) => void;
@@ -101,16 +101,17 @@ const NewsDetailPage: React.FC<NewsDetailPageProps> = ({ handleEditNews, handleD
 
                 <Card.Img variant="top" src={news.image_url} alt={news.title} className="mb-4 rounded shadow-sm" style={{ maxHeight: '450px', objectFit: 'cover' }} />
 
+                {/* *** LA CORRECCIÓN CLAVE AQUÍ: CAMBIAR 'news.body' a 'news.content' *** */}
                 <Card.Text className="lead mb-5">
-                    {news.body}
+                    {news.content}
                 </Card.Text>
 
                 <div className="d-flex justify-content-end gap-3 border-top pt-4">
                     <Button variant="primary" onClick={() => handleEditNews(news)} className="d-inline-flex align-items-center">
-                        <PencilFill className="me-2" /> Editar {/* Usamos PencilFill */}
+                        <PencilFill className="me-2" /> Editar
                     </Button>
                     <Button variant="danger" onClick={() => handleDeleteRequest(news.id)} className="d-inline-flex align-items-center">
-                        <TrashFill className="me-2" /> Eliminar {/* Usamos TrashFill */}
+                        <TrashFill className="me-2" /> Eliminar
                     </Button>
                 </div>
             </Card>
