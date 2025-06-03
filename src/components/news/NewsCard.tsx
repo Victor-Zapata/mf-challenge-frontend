@@ -20,7 +20,7 @@ const NewsCard: React.FC<NewsCardProps> = ({ news }) => {
     };
 
     return (
-        <Card className="h-100 shadow-sm border-0 transition-shadow transition-transform duration-300 ease-in-out transform hover:scale-102 hover:shadow-lg">
+        <Card className="h-100 news-card shadow-sm border-0 transition-shadow transition-transform duration-300 ease-in-out transform hover:scale-102 hover:shadow-lg">
             <Link to={`/news/${news.id}`} className="text-decoration-none text-dark h-100 d-flex flex-column">
                 <Card.Img variant="top" src={news.image_url} alt={news.title} style={{ height: '180px', objectFit: 'cover' }} />
                 <Card.Body className="d-flex flex-column flex-grow-1">
