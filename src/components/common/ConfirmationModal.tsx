@@ -1,4 +1,3 @@
-// mfnews-frontend/src/components/common/ConfirmationModal.tsx
 import React from 'react';
 import { Modal as BootstrapModal, Button } from 'react-bootstrap';
 

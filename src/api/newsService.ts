@@ -1,8 +1,7 @@
-// mfnews-frontend/src/api/newsService.ts
 import axios from 'axios';
 import { News, NewNewsData, UpdateNewsData, NewsSearchParams } from '../types/news';
 
-const API_BASE_URL = 'http://localhost:3000/api'; // Asegúrate de que esta URL coincida con tu backend
+const API_BASE_URL = 'http://localhost:3000/api'; 
 
 const newsService = {
     getAllNews: async (): Promise<News[]> => {

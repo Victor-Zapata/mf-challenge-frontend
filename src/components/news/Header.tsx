@@ -1,4 +1,3 @@
-// mfnews-frontend/src/components/news/Header.tsx
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar, Container, Button } from 'react-bootstrap';

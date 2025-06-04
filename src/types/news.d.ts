@@ -1,4 +1,3 @@
-// mfnews-frontend/src/types/news.d.ts
 
 export interface News {
     id: number;
@@ -6,7 +5,7 @@ export interface News {
     content: string;
     image_url: string;
     author: string;
-    date: string; // La fecha viene como string ISO de la base de datos
+    date: string; 
 }
 
 // Para la creación de noticias (sin ID ni fecha, porque los genera el backend)

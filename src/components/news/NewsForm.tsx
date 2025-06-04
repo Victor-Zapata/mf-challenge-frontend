@@ -1,4 +1,3 @@
-// mfnews-frontend/src/components/news/NewsForm.tsx
 import React, { useState, useEffect } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 import { News, NewNewsData, UpdateNewsData } from '../../types/news';
@@ -36,7 +35,7 @@ const NewsForm: React.FC<NewsFormProps> = ({ newsToEdit, onSave, onClose }) => {
                 content: newsToEdit.content,
                 image_url: newsToEdit.image_url || '',
                 author: newsToEdit.author || '',
-            }); // Loggea el objeto directo para evitar closures
+            }); 
         } else {
             console.log('--- useEffect: Modo Creación ---');
             setFormData({
@@ -54,8 +53,6 @@ const NewsForm: React.FC<NewsFormProps> = ({ newsToEdit, onSave, onClose }) => {
         console.log('--- handleChange ---');
         console.log(`Campo: ${name}, Nuevo valor: ${value}`);
         setFormData(prev => ({ ...prev, [name]: value }));
-        // Nota: Si quieres ver el estado actualizado aquí, necesitarías otro useEffect o pasar un callback a setFormData
-        // console.log('formData actual (en handleChange):', { ...formData, [name]: value });
     };
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -64,7 +61,7 @@ const NewsForm: React.FC<NewsFormProps> = ({ newsToEdit, onSave, onClose }) => {
         setError(null);
 
         console.log('--- handleSubmit: formData actual antes de validación ---');
-        console.log('formData:', formData); // Verifica el estado final antes de enviar
+        console.log('formData:', formData); 
 
         if (!formData.title || !formData.content) {
             setError('Título y Contenido son campos obligatorios.');

@@ -1,4 +1,3 @@
-// mfnews-frontend/src/pages/NewsListPage.tsx
 import React, { useEffect, useState, useCallback } from 'react';
 import newsService from '../api/newsService';
 import NewsCard from '../components/news/NewsCard.tsx';

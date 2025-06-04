@@ -17,7 +17,7 @@ const ScrollToTopButton: React.FC = () => {
     const scrollToTop = () => {
         window.scrollTo({
             top: 0,
-            behavior: 'smooth' // Desplazamiento suave
+            behavior: 'smooth' 
         });
     };
 
@@ -35,16 +35,16 @@ const ScrollToTopButton: React.FC = () => {
                 position: 'fixed',
                 bottom: '20px',
                 right: '20px',
-                zIndex: 1000, // Asegura que esté por encima de otros elementos
-                width: '50px', // Ancho fijo
-                height: '50px', // Alto fijo
-                display: 'flex', // Para centrar el icono
-                justifyContent: 'center', // Centrar horizontalmente
-                alignItems: 'center' // Centrar verticalmente
+                zIndex: 1000, 
+                width: '50px', 
+                height: '50px', 
+                display: 'flex', 
+                justifyContent: 'center', 
+                alignItems: 'center' 
             }}
             aria-label="Volver arriba"
         >
-            <ArrowUpShort size={24} /> {/* Icono de flecha hacia arriba */}
+            <ArrowUpShort size={24} /> 
         </button>
     );
 };

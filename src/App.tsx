@@ -1,4 +1,3 @@
-// mfnews-frontend/src/App.tsx
 import MainContent from './components/MainContent.tsx'; 
 
 function App() {

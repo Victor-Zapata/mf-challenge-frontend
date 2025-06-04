@@ -1,5 +1,3 @@
-// mfnews-frontend/src/pages/NewsDetailPage.tsx
-
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import newsService from '../api/newsService';
@@ -101,7 +99,6 @@ const NewsDetailPage: React.FC<NewsDetailPageProps> = ({ handleEditNews, handleD
 
                 <Card.Img variant="top" src={news.image_url} alt={news.title} className="mb-4 rounded shadow-sm" style={{ maxHeight: '450px', objectFit: 'cover' }} />
 
-                {/* *** LA CORRECCIÓN CLAVE AQUÍ: CAMBIAR 'news.body' a 'news.content' *** */}
                 <Card.Text className="lead mb-5">
                     {news.content}
                 </Card.Text>

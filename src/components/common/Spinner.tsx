@@ -1,6 +1,5 @@
-// mfnews-frontend/src/components/common/Spinner.tsx
 import React from 'react';
-import { Spinner as BootstrapSpinner } from 'react-bootstrap'; // Importamos el Spinner de Bootstrap
+import { Spinner as BootstrapSpinner } from 'react-bootstrap'; 
 
 const Spinner: React.FC = () => {
     return (

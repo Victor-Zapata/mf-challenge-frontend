@@ -1,4 +1,3 @@
-// mfnews-frontend/src/components/news/NewsCard.tsx
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Card } from 'react-bootstrap';
@@ -19,7 +18,7 @@ const NewsCard: React.FC<NewsCardProps> = ({ news }) => {
         });
     };
 
-    // Función para truncar el contenido
+    // Función para cortar el contenido si es mucho texto
     const truncateContent = (text: string, maxLength: number): string => {
         if (!text) return '';
         if (text.length <= maxLength) return text;
@@ -35,7 +34,7 @@ const NewsCard: React.FC<NewsCardProps> = ({ news }) => {
                     <Card.Text className="text-muted small mb-1">Por: {news.author}</Card.Text>
                     
                     <Card.Text className="card-text-content mb-3">
-                        {truncateContent(news.content, 100)} {/* Ajusta 100 al largo que quieras */}
+                        {truncateContent(news.content, 100)} 
                     </Card.Text>
 
                     <Card.Text className="text-muted small mt-auto text-end">

@@ -1,7 +1,5 @@
-// mfnews-frontend/src/components/common/NotificationToast.tsx
 import React, { useEffect, useState } from 'react';
 import { Toast, ToastContainer } from 'react-bootstrap';
-// ¡CAMBIO AQUÍ! Importa desde react-bootstrap-icons
 import { CheckCircleFill, ExclamationTriangleFill, InfoCircleFill } from 'react-bootstrap-icons';
 
 interface NotificationToastProps {
@@ -33,9 +31,9 @@ const NotificationToast: React.FC<NotificationToastProps> = ({ message, type, on
 
     const getIcon = () => {
         switch (type) {
-            case 'success': return <CheckCircleFill className="me-2" size={20} />; // Usamos CheckCircleFill
-            case 'error':   return <ExclamationTriangleFill className="me-2" size={20} />; // Usamos ExclamationTriangleFill
-            case 'info':    return <InfoCircleFill className="me-2" size={20} />; // Usamos InfoCircleFill
+            case 'success': return <CheckCircleFill className="me-2" size={20} />; 
+            case 'error':   return <ExclamationTriangleFill className="me-2" size={20} />; 
+            case 'info':    return <InfoCircleFill className="me-2" size={20} />; 
             default:        return null;
         }
     };

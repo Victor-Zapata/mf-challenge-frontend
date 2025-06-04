@@ -17,14 +17,6 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
             <BootstrapModal.Body>
                 {children}
             </BootstrapModal.Body>
-            {/* Opcional: Si quieres un footer de modal con botones de cerrar/guardar */}
-            {/*
-            <BootstrapModal.Footer>
-                <Button variant="secondary" onClick={onClose}>
-                    Cerrar
-                </Button>
-            </BootstrapModal.Footer>
-            */}
         </BootstrapModal>
     );
 };
