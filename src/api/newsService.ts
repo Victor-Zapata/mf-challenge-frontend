@@ -5,7 +5,7 @@ const API_BASE_URL = import.meta.env.VITE_APP_API_URL || 'http://localhost:3000'
 
 // Creo una instancia de Axios para configurar la baseURL una sola vez
 const api = axios.create({
-    baseURL: `${API_BASE_URL}/api`, // Añade /api aquí para que todas las rutas lo usen
+    baseURL: API_BASE_URL, // Añade /api aquí para que todas las rutas lo usen
 });
 
 const newsService = {
