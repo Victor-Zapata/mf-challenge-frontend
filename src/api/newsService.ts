@@ -1,11 +1,8 @@
-// mfnews-frontend/src/api/newsService.ts
 import axios from 'axios';
 import { News, NewNewsData, UpdateNewsData, NewsSearchParams } from '../types/news';
 
-// Esto usará http://localhost:3000 de tu .env o el fallback
 const API_BASE_URL = import.meta.env.VITE_APP_API_URL || 'http://localhost:3000'; 
 
-// La base de las URLs de Axios será http://localhost:3000/api
 const api = axios.create({
     baseURL: `${API_BASE_URL}/api`, 
 });
@@ -13,7 +10,6 @@ const api = axios.create({
 const newsService = {
     getAllNews: async (): Promise<News[]> => {
         try {
-            // Llama a http://localhost:3000/api/
             const response = await api.get<News[]>('/'); 
             return response.data;
         } catch (error) {
@@ -68,7 +64,6 @@ const newsService = {
 
     searchNews: async (params: NewsSearchParams): Promise<News[]> => {
         try {
-            // Llama a http://localhost:3000/api/search
             const response = await api.get<News[]>('/search', { params }); 
             return response.data;
         } catch (error) {
