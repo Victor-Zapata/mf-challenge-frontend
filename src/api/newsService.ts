@@ -1,12 +1,17 @@
 import axios from 'axios';
 import { News, NewNewsData, UpdateNewsData, NewsSearchParams } from '../types/news';
 
-const API_BASE_URL = 'http://localhost:3000/api'; 
+const API_BASE_URL = import.meta.env.VITE_APP_API_URL || 'http://localhost:3000';
+
+// Creo una instancia de Axios para configurar la baseURL una sola vez
+const api = axios.create({
+    baseURL: `${API_BASE_URL}/api`, // Añade /api aquí para que todas las rutas lo usen
+});
 
 const newsService = {
     getAllNews: async (): Promise<News[]> => {
         try {
-            const response = await axios.get<News[]>(`${API_BASE_URL}/news`);
+            const response = await api.get<News[]>(`${API_BASE_URL}/news`);
             return response.data;
         } catch (error) {
             console.error('Error fetching all news:', error);
@@ -16,7 +21,7 @@ const newsService = {
 
     getNewsById: async (id: number): Promise<News> => {
         try {
-            const response = await axios.get<News>(`${API_BASE_URL}/news/${id}`);
+            const response = await api.get<News>(`${API_BASE_URL}/news/${id}`);
             return response.data;
         } catch (error) {
             console.error(`Error fetching news with ID ${id}:`, error);
@@ -26,7 +31,7 @@ const newsService = {
 
     createNews: async (newsData: NewNewsData): Promise<News> => {
         try {
-            const response = await axios.post<News>(`${API_BASE_URL}/news`, newsData);
+            const response = await api.post<News>(`${API_BASE_URL}/news`, newsData);
             return response.data;
         } catch (error) {
             console.error('Error creating news:', error);
@@ -36,7 +41,7 @@ const newsService = {
 
     updateNews: async (id: number, newsData: UpdateNewsData): Promise<News> => {
         try {
-            const response = await axios.put<News>(`${API_BASE_URL}/news/${id}`, newsData);
+            const response = await api.put<News>(`${API_BASE_URL}/news/${id}`, newsData);
             return response.data;
         } catch (error) {
             console.error(`Error updating news with ID ${id}:`, error);
@@ -46,7 +51,7 @@ const newsService = {
 
     deleteNews: async (id: number): Promise<{ message: string; id: number }> => {
         try {
-            const response = await axios.delete<{ message: string; id: number }>(`${API_BASE_URL}/news/${id}`);
+            const response = await api.delete<{ message: string; id: number }>(`${API_BASE_URL}/news/${id}`);
             return response.data;
         } catch (error) {
             console.error(`Error deleting news with ID ${id}:`, error);
@@ -56,7 +61,7 @@ const newsService = {
 
     searchNews: async (params: NewsSearchParams): Promise<News[]> => {
         try {
-            const response = await axios.get<News[]>(`${API_BASE_URL}/news/search`, { params });
+            const response = await api.get<News[]>(`${API_BASE_URL}/news/search`, { params });
             return response.data;
         } catch (error) {
             console.error('Error searching news:', error);
