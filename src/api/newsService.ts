@@ -1,17 +1,18 @@
+// mfnews-frontend/src/api/newsService.ts
 import axios from 'axios';
 import { News, NewNewsData, UpdateNewsData, NewsSearchParams } from '../types/news';
 
-const API_BASE_URL = import.meta.env.VITE_APP_API_URL || 'http://localhost:3000';
+const API_BASE_URL = import.meta.env.VITE_APP_API_URL || 'http://localhost:3000'; 
 
-// Creo una instancia de Axios para configurar la baseURL una sola vez
 const api = axios.create({
-    baseURL: API_BASE_URL, // Añade /api aquí para que todas las rutas lo usen
+    baseURL: API_BASE_URL, 
 });
 
 const newsService = {
     getAllNews: async (): Promise<News[]> => {
         try {
-            const response = await api.get<News[]>(`${API_BASE_URL}/news`);
+            // *** CAMBIO CLAVE AQUÍ: api.get<News[]> en lugar de api.get<News> ***
+            const response = await api.get<News[]>('/news'); 
             return response.data;
         } catch (error) {
             console.error('Error fetching all news:', error);
@@ -21,7 +22,8 @@ const newsService = {
 
     getNewsById: async (id: number): Promise<News> => {
         try {
-            const response = await api.get<News>(`${API_BASE_URL}/news/${id}`);
+            // Aquí está bien <News> porque esperas una sola noticia
+            const response = await api.get<News>(`/news/${id}`); 
             return response.data;
         } catch (error) {
             console.error(`Error fetching news with ID ${id}:`, error);
@@ -31,7 +33,8 @@ const newsService = {
 
     createNews: async (newsData: NewNewsData): Promise<News> => {
         try {
-            const response = await api.post<News>(`${API_BASE_URL}/news`, newsData);
+            // Aquí también está bien <News>
+            const response = await api.post<News>('/news', newsData); 
             return response.data;
         } catch (error) {
             console.error('Error creating news:', error);
@@ -41,7 +44,8 @@ const newsService = {
 
     updateNews: async (id: number, newsData: UpdateNewsData): Promise<News> => {
         try {
-            const response = await api.put<News>(`${API_BASE_URL}/news/${id}`, newsData);
+            // Aquí también está bien <News>
+            const response = await api.put<News>(`/news/${id}`, newsData); 
             return response.data;
         } catch (error) {
             console.error(`Error updating news with ID ${id}:`, error);
@@ -51,7 +55,8 @@ const newsService = {
 
     deleteNews: async (id: number): Promise<{ message: string; id: number }> => {
         try {
-            const response = await api.delete<{ message: string; id: number }>(`${API_BASE_URL}/news/${id}`);
+            // Aquí el tipo de retorno específico está bien
+            const response = await api.delete<{ message: string; id: number }>(`/news/${id}`); 
             return response.data;
         } catch (error) {
             console.error(`Error deleting news with ID ${id}:`, error);
@@ -61,7 +66,9 @@ const newsService = {
 
     searchNews: async (params: NewsSearchParams): Promise<News[]> => {
         try {
-            const response = await api.get<News[]>(`${API_BASE_URL}/news/search`, { params });
+            // *** CAMBIO CLAVE AQUÍ: api.get<News[]> en lugar de api.get<News> ***
+            // Porque la búsqueda también devolverá un array de noticias
+            const response = await api.get<News[]>('/news/search', { params }); 
             return response.data;
         } catch (error) {
             console.error('Error searching news:', error);
